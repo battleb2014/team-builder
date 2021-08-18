@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MemberForm = (props) => {
+const MemberForm = props => {
 
     const { values, update, submit } = props;
 
@@ -9,6 +9,7 @@ const MemberForm = (props) => {
         const value = event.target.value;
 
         update( name, value );
+        console.log(values);
     }
 
     const onSubmit = event => {
@@ -18,28 +19,30 @@ const MemberForm = (props) => {
 
     return (
     <form className = 'form' onSubmit = { onSubmit }>
-        <div className = ''>
-            <label>Username
+        <div className = 'inputs'>
+            <label>Username: 
                 <input 
                     type = 'text'
                     name = 'username'
+                    value = { values.username }
                     placeholder = 'username'
                     maxLength = '30'
                     onChange = { onChange }
                 />
             </label><br />
 
-            <label>Email
+            <label>Email: 
                 <input 
                     type = 'email'
                     name = 'email'
+                    value = { values.email }
                     placeholder = 'email'
                     maxLength = '30'
                     onChange = { onChange }
                 />
             </label><br />
 
-            <label>Role
+            <label>Role: 
                 <select value = { values.role } name = 'role' onChange = { onChange }>
                     <option value = ''>-- Select a Role --</option>
                     <option value = 'BE'>Backend Engineer</option>

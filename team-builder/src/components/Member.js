@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Member = (props) => {
+const Member = props => {
     const { info } = props;
 
-    if(!info) (
-        <h3>Fetching the members list...</h3>
-    )
-
+    if(!info) {
+       return <h3>Fetching the members list...</h3>
+}
+    
     return (
     <div className = 'member-container'>
         <h2>{ info.username }</h2>
